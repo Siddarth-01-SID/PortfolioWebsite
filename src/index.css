@@ -124,6 +124,7 @@
     --text-8xl--line-height: 1;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
+    --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
     --tracking-tight: -.025em;
@@ -783,10 +784,6 @@
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
-  .flex-wrap {
-    flex-wrap: wrap;
-  }
-
   .items-center {
     align-items: center;
   }
@@ -805,10 +802,6 @@
 
   .gap-3 {
     gap: calc(var(--spacing) * 3);
-  }
-
-  .gap-4 {
-    gap: calc(var(--spacing) * 4);
   }
 
   .gap-6 {
@@ -887,10 +880,6 @@
 
   .border-gray-200 {
     border-color: var(--color-gray-200);
-  }
-
-  .border-gray-900 {
-    border-color: var(--color-gray-900);
   }
 
   .border-transparent {
@@ -1324,6 +1313,11 @@
     font-weight: var(--font-weight-medium);
   }
 
+  .font-semibold {
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+
   .tracking-tight {
     --tw-tracking: var(--tracking-tight);
     letter-spacing: var(--tracking-tight);
@@ -1649,12 +1643,6 @@
   }
 
   @media (hover: hover) {
-    .group-hover\/btn2\:rotate-12:is(:where(.group\/btn2):hover *) {
-      rotate: 12deg;
-    }
-  }
-
-  @media (hover: hover) {
     .group-hover\/image\:scale-110:is(:where(.group\/image):hover *) {
       --tw-scale-x: 110%;
       --tw-scale-y: 110%;
@@ -1735,12 +1723,6 @@
   }
 
   @media (hover: hover) {
-    .hover\:bg-gray-900:hover {
-      background-color: var(--color-gray-900);
-    }
-  }
-
-  @media (hover: hover) {
     .hover\:bg-gradient-to-r:hover {
       --tw-gradient-position: to right in oklab;
       background-image: linear-gradient(var(--tw-gradient-stops));
@@ -1794,12 +1776,6 @@
   }
 
   @media (hover: hover) {
-    .hover\:text-white:hover {
-      color: var(--color-white);
-    }
-  }
-
-  @media (hover: hover) {
     .hover\:shadow-2xl:hover {
       --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, #00000040);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -1810,18 +1786,6 @@
     .hover\:shadow-xl:hover {
       --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, #0000001a), 0 8px 10px -6px var(--tw-shadow-color, #0000001a);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:shadow-purple-500\/30:hover {
-      --tw-shadow-color: color-mix(in srgb, oklch(.627 .265 303.9) 30%, transparent);
-    }
-
-    @supports (color: color-mix(in lab, red, red)) {
-      .hover\:shadow-purple-500\/30:hover {
-        --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-purple-500) 30%, transparent) var(--tw-shadow-alpha), transparent);
-      }
     }
   }
 

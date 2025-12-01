@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Download, FileDown, ChevronDown, ChevronUp } from "lucide-react";
+import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface DetailedProjectCardProps {
@@ -8,8 +8,7 @@ interface DetailedProjectCardProps {
   categoryColor: string;
   image: string;
   description: string;
-  downloadImage?: string;
-  downloadImageName?: string;
+  caseStudyLink?: string;
 }
 
 export function DetailedProjectCard({
@@ -18,8 +17,7 @@ export function DetailedProjectCard({
   categoryColor,
   image,
   description,
-  downloadImage,
-  downloadImageName = "project.png",
+  caseStudyLink,
 }: DetailedProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -28,7 +26,7 @@ export function DetailedProjectCard({
       {/* Header with gradient accent */}
       <div className="p-8 pb-4 relative">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
-        <h3 className="text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 transition-all duration-500">{title}</h3>
+        <h3 className="font-semibold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 transition-all duration-500">{title}</h3>
         <span
           className={`inline-block px-5 py-2 rounded-full text-sm font-medium ${categoryColor} shadow-sm transform group-hover:scale-105 transition-transform duration-300`}
         >
@@ -73,24 +71,21 @@ export function DetailedProjectCard({
           )}
         </button>
 
-        {/* Buttons with enhanced animations */}
-        <div className="flex flex-wrap gap-4 pt-4">
-          <button className="relative inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gradient-to-r hover:from-black hover:to-purple-600 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/50 overflow-hidden group/btn1">
-            <span className="absolute inset-0 bg-gradient-to-r from-black to-purple-600 opacity-0 group-hover/btn1:opacity-100 transition-opacity duration-500"></span>
-            <Download size={18} className="relative z-10 group-hover/btn1:rotate-12 transition-transform duration-300" />
-            <span className="relative z-10">Download Case Study</span>
-          </button>
-          {downloadImage && (
-            <a 
-              href={downloadImage}
-              download={downloadImageName}
-              className="relative inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-900 text-gray-900 rounded-full hover:bg-gray-900 hover:text-white transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/30 overflow-hidden group/btn2"
+        {/* Case Study Button */}
+        {caseStudyLink && (
+          <div className="pt-4">
+            <a
+              href={caseStudyLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gradient-to-r hover:from-black hover:to-purple-600 transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/50 overflow-hidden group/btn1"
             >
-              <FileDown size={18} className="relative z-10 group-hover/btn2:rotate-12 transition-transform duration-300" />
-              <span className="relative z-10">Download JPEG File</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-black to-purple-600 opacity-0 group-hover/btn1:opacity-100 transition-opacity duration-500"></span>
+              <ExternalLink size={18} className="relative z-10 group-hover/btn1:rotate-12 transition-transform duration-300" />
+              <span className="relative z-10">See Case Study</span>
             </a>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
